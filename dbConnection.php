@@ -1,16 +1,13 @@
 <?php 
-
 $serverName = "localhost";
-$userName = "";
+$userName = "root";
 $password = "";
 $dbName = "proiect-tw";
 
-$connection = mysqli_connect($serverName, $userName, $password, $dbName);
+$connection = new mysqli($serverName, $userName, $password, $dbName);
 
-if(mysqli_connect_errno()){
-    echo "Can't connect to database !";
+if($connection->connect_error){
+    die("Connection with database failed: " . $connection->connect_error);
     exit();
 }
-echo "Connection success"
-
 ?>
