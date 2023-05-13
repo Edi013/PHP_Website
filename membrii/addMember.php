@@ -43,9 +43,11 @@
             $message =  "Member is already inserted.";
         }
     }
+    $result->close();
 
     if (!$valid) {
         header("Location: membrii.php?message=" . urlencode($message));
+        $connection->close();
         exit();
     }
 
@@ -53,14 +55,17 @@
     $stmt = $connection->prepare("INSERT INTO membrii (FirstName, LastName) VALUES (?, ?)");
     $stmt->bind_param("ss", $firstName, $lastName);
     $stmt->execute();
-    if ($stmt->errno == 0) {
-        $message = "Member inserted successfully.";
-    } else {
+    if ($stmt->errno != 0) {
         $message = "Error inserting Member: " . $connection->error;
+        header("Location: membrii.php?message=". urlencode($message));
+        $stmt->close();
+        $connection->close();
+        exit();
     }
-
+    
+    $message = "Member inserted successfully.";
     header("Location: membrii.php?message=". urlencode($message));
-
+    $stmt->close();
     $connection->close();
     include "../footer/footer.php";
 ?>

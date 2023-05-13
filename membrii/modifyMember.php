@@ -44,17 +44,50 @@
     $lastNameToModify = mysqli_real_escape_string($connection, $lastNameToModify);#$_REQUEST["lastNameToModify"]);
     $lastNameToModify = htmlspecialchars($lastNameToModify);
 
+    #verificam daca numele nou de introdus este deja existent
+    $stmt = $connection->prepare("Select * FROM membrii WHERE LastName = ?");
+    $stmt->bind_param("s", $lastName);
+    $stmt->execute();   
+    $stmt = $stmt->get_result();
+    if($stmt->num_rows > 0){
+        $message = "Name '$lastName' is already taken.";
+        header("Location: membrii.php?message=". urlencode($message));
+        $connection->close();
+        $stmt->close();
+        exit();
+    }
+    $stmt->close();
+
+    #verificam daca numele vechi exista. Nu putem modifica ceva ce nu exista.
+    $stmt = $connection->prepare("Select * FROM membrii WHERE LastName = ?");
+    $stmt->bind_param("s", $lastNameToModify);
+    $stmt->execute();   
+    $stmt = $stmt->get_result();
+    if($stmt->num_rows != 1){
+        $message = "None member found to modify for Last Name = '$lastNameToModify'";
+        header("Location: membrii.php?message=". urlencode($message));
+        $connection->close();
+        $stmt->close();
+        exit();
+    }
+    $stmt->close();
+
+    #facem update-ul
     $stmt = $connection->prepare("UPDATE membrii SET FirstName = ?, LastName = ? WHERE LastName = ?");
     $stmt->bind_param("sss", $firstName, $lastName, $lastNameToModify);
     $stmt->execute();
-    if ($stmt->errno == 0) {
-        $message = "Member inserted successfully.";
-    } else {
+    if ($stmt->errno != 0) {
         $message = "Error inserting Member: " . $connection->error;
-    }
+        header("Location: membrii.php?message=". urlencode($message));
+        $connection->close();
+        $stmt->close();
+        exit();
+    } 
 
+    #totul s-a terminat cu succes
+    $message = "Member inserted successfully.";
     header("Location: membrii.php?message=". urlencode($message));
-    
     $connection->close();
+    $stmt->close();
     include "../footer/footer.php";
 ?>

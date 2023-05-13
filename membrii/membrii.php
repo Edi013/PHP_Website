@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Teatru Craiova</title>
-    <link rel="stylesheet" href="index.css">
     
 </head>
 <body>
@@ -54,13 +53,13 @@
     <form action="deleteMember.php" method="post"><br><br>
         <fieldset>
             <legend>Delete member</legend>
-            <label for="lastNameToDelete">Old last name:</label>
+            <label for="lastNameToDelete">Last name:</label>
             <input type="text" id="lastNameToDelete" name="lastNameToDelete"><br><br>
 
             <input type="submit" value="Delete"><br><br> 
         </fieldset>
-    </form>
-
+    </form><br>
+    <br>
     <?php
          include "../footer/footer.php";
      ?>
