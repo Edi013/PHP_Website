@@ -1,0 +1,38 @@
+#NavigationBar{
+    margin: 0;
+    padding: 0;
+    top: 0;
+    left: 0;
+    background-color: #dcdbdb; 
+    max-width: 15%;
+    width: 15%;
+    min-width: 10%;
+}
+
+li a{
+    display: block;
+    color: #000;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+  
+li a.active {
+    background-color: #04AA6D;
+    color: white;
+}
+  
+li a:hover:not(.active) {
+    background-color: #555;
+    color: white;
+}
+
+li.BottomSection{
+    position: fixed;
+    bottom: 0;
+    left: 0; 
+    display: block;
+    width: 7%;
+    min-width: 95px;
+    background-color: #dcdbdb;
+}
+

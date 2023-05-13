@@ -1,0 +1,13 @@
+#Method{
+    left: 0;
+}
+#Value{
+    right: 0;
+    font-size: x-large;
+}
+body{
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    justify-content: space-between;
+}
