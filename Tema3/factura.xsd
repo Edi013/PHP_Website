@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+<xs:element name="factura">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element name="firma">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="nume" type="xs:string"/>
+						<xs:element name="sediu" type="xs:string"/>
+					<xs:sequence>
+				</xs:complexType>
+			</xs:element>
+
+			<xs:element name="dataCurenta" type="xs:date"/>
+			<xs:element name="perioadaFacturareInceput" type="xs:date"/>
+			<xs:element name="perioadaFacturareSfarsit" type="xs:date"/>
+
+			<xs:element name="client">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="firstName" type="xs:string"/>
+						<xs:element name="lastName" type="xs:string"/>
+						<xs:element name="cod" type="xs:string"/>
+					<xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			
+			<xs:element name="soldPrecedent" type="xs:decimal"/>
+			<xs:element name="facturaCurenta" type="xs:decimal"/>
+			<xs:element name="tva" type="xs:decimal"/>
+			<xs:element name="totalDeAchitat" type="xs:decimal"/>
+			<xs:element name="telefonInformatii" type="xs:string"/>
+		<xs:sequence>
+	</xs:complexType>
+</xs:element>
+
+</xs:schema>
