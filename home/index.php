@@ -39,7 +39,13 @@
 <body>
     <?php
      include "../navigation-bar/navigation-bar.php";
+     
+    //  $admin = "admin";
+    //  $pass = password_hash("admin", PASSWORD_DEFAULT);
+    //  include "../dbConnection.php";
+    //  $connection->execute_query("INSERT INTO credentials (Username, Password) VALUES ('$admin', '$pass')");
      ?>
+     
      <div id = "Spacing"></div>
         <h2><?php echo "Hello ".$_SESSION['userName']?></h2>
         <h3 style="padding: 15px 15px 15px 15px;">Bine ati venit pe site-ul Echipei X, Teatru Craiova!</h3>

@@ -6,4 +6,5 @@
         <li><a href="../program/program.php">Program</a></li>
         <li><a href="../repertoriu/repertoriu.php">Repertoriu</a></li>
         <li><a href="../contact/contact.php">Contact</a></li>
+        <li><a href="../login/logout.php">Logout</a></li>
     </ul>

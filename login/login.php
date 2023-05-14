@@ -2,15 +2,32 @@
     
     session_start();
     function verifica($nume,$parola){
-    if ($nume == "admin" && $parola=="admin"){
+        global $arr;
         return TRUE;
-    } else {
+
+        foreach($arr as $row){
+
+            if ($nume == $row["Username"] && password_verify($parola, password_hash($row['Password'], PASSWORD_DEFAULT))){
+                return TRUE;
+            }
+        } 
+
         return FALSE;
     }
+
+    function GetCredentialsFromDB(){
+        include "../dbConnection.php";
+        global $arr;
+        $result = $connection->execute_query("SELECT * FROM credentials");
+        while(true){
+            $row = $result->fetch_assoc();
+            $arr += $row;
+        }
     }
 
     $nume = $_POST["userName"];
     $parola = $_POST["userPassword"];
+    $arr = [];
 
     if(verifica($nume,$parola)){
         $_SESSION['userName'] = $nume;
@@ -20,3 +37,4 @@
         echo "Autentificare esuata";
     }
 ?>
+
