@@ -4,12 +4,13 @@
 <xs:element name="factura">
 	<xs:complexType>
 		<xs:sequence>
+
 			<xs:element name="firma">
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element name="nume" type="xs:string"/>
 						<xs:element name="sediu" type="xs:string"/>
-					<xs:sequence>
+					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
 
@@ -23,7 +24,7 @@
 						<xs:element name="firstName" type="xs:string"/>
 						<xs:element name="lastName" type="xs:string"/>
 						<xs:element name="cod" type="xs:string"/>
-					<xs:sequence>
+					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
 			
@@ -31,9 +32,15 @@
 			<xs:element name="facturaCurenta" type="xs:decimal"/>
 			<xs:element name="tva" type="xs:decimal"/>
 			<xs:element name="totalDeAchitat" type="xs:decimal"/>
-			<xs:element name="telefonInformatii" type="xs:string"/>
-		<xs:sequence>
+			<xs:element name="telefonInformatii">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:pattern value="[0-9]{10}"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+
+		</xs:sequence>
 	</xs:complexType>
 </xs:element>
-
 </xs:schema>

@@ -1,3 +1,7 @@
+<?php
+    include "../login/checkLoginStatus.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +9,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Teatru Craiova</title>
-    
+    <script src="validate.js" type="text/javascript"></script>
+
 </head>
 <body>
     <?php
@@ -19,11 +24,11 @@
     ?>
 
      <!-- Add -->
-    <form action="addSubject.php" method="post"><br>
+    <form name="addSubject" onsubmit="return validateAdd()" action="addSubject.php" method="post"><br>
         <fieldset>
             <legend>Add new subject</legend>
 
-            <label for="name">First name:</label>
+            <label for="name">Name:</label>
             <input type="text" id="name" name="name"><br><br>
 
             <input type="submit" value="Add"><br><br> 
@@ -31,9 +36,9 @@
     </form>
 
     <!-- Modify -->
-    <form action="modifySubject.php" method="post"><br><br>
+    <form name="modifySubject" onsubmit="return validateModify()" action="modifySubject.php" method="post"><br><br>
         <fieldset>
-            <legend>Modify member</legend>
+            <legend>Modify subject</legend>
             <label for="oldName">Old name:</label>
             <input type="text" id="oldName" name="oldName"><br><br>
             
@@ -45,10 +50,10 @@
     </form>
 
     <!-- Delete -->
-    <form action="deleteSubject.php" method="post"><br><br>
+    <form name="deleteSubject" onsubmit="return validateDelete()" action="deleteSubject.php" method="post"><br><br>
         <fieldset>
-            <legend>Delete member</legend>
-            <label for="nameToDelete">Last name:</label>
+            <legend>Delete subject</legend>
+            <label for="nameToDelete">Name:</label>
             <input type="text" id="nameToDelete" name="nameToDelete"><br><br>
 
             <input type="submit" value="Delete"><br><br> 
