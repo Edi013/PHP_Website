@@ -1,28 +1,33 @@
+<script src="validate.js" type="text/javascript"></script>
 <?php 
-    session_start();
+        session_start();
 
-    #Login 
-    if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] == FALSE){
-        ?>
-        <form action="../login/login.php" method="post">
-            <fieldset>
+        if(isset($_SESSION['message'])){
+            echo $_SESSION['message'];
+            echo "<br><br>";
+        }
 
-                <legend>Credentials</legend>
-                
-                <label for="userName">Username:</label>
-                <input type="text" id="userName" name="userName"><br><br>
-                
-                <label for="userPassword">Password:</label>
-                <input type="password" id="userPassword" name="userPassword"><br><br>
-                
-                <input type = submit value = "Log in">
-            </fieldset>
-        </form>
-        <?php
-        exit;
-    } else {
-        $user = $_SESSION['userName'];
-    }
+            #Login 
+        if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] == FALSE){
+?>
+            <form name = "Login" onsubmit="return validateLogin()" action="../login/login.php" method="post">
+                <fieldset>
+
+                    <legend>Credentials</legend>
+                    
+                    <label for="userName">Username:</label>
+                    <input type="text" id="userName" name="userName"><br><br>
+                    
+                    <label for="userPassword">Password:</label>
+                    <input type="password" id="userPassword" name="userPassword"><br><br>
+                    
+                    <input type = submit value = "Log in">
+                </fieldset>
+            </form>
+<?php
+            } else {
+                $user = $_SESSION['userName'];
+        }
 ?>
 
 <!-- After login / Home -->
@@ -37,9 +42,13 @@
     
 </head>
 <body>
+
+
+
     <?php
      include "../navigation-bar/navigation-bar.php";
      
+    // Sectiunea cu care am inserat parola in baza de date - mysql:
     //  $admin = "admin";
     //  $pass = password_hash("admin", PASSWORD_DEFAULT);
     //  include "../dbConnection.php";

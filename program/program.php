@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Teatru Craiova</title>
+    <script src="validate.js" type="text/javascript"></script>
     
 </head>
 <body>
@@ -19,7 +20,7 @@
     ?>
 
      <!-- Add -->
-    <form action="addAppointment.php" method="post"><br>
+    <form name="addAppointment" onsubmit="return validateAdd()" action="addAppointment.php" method="post"><br>
         <fieldset>
             <legend>Add new appointment</legend>
             <label for="name">Subject name:</label>
@@ -39,7 +40,7 @@
     </form>
 
     <!-- Modify -->
-    <form action="modifyAppointment.php" method="post"><br><br>
+    <form name="modifyAppointment" onsubmit="return validateModify()" action="modifyAppointment.php" method="post"><br><br>
         <fieldset>
             <legend>Modify appointment</legend>
             <label for="oldBeginningHour">Old begining hour :</label>
@@ -59,7 +60,7 @@
     </form>
 
     <!-- Delete -->
-    <form action="deleteAppointment.php" method="post"><br><br>
+    <form name="deleteAppointment" onsubmit="return validateDelete()" action="deleteAppointment.php" method="post"><br><br>
         <fieldset>
             <legend>Delete appointment</legend>
             <label for="beginningHourToDelete">Begining hour :</label>

@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Teatru Craiova</title>
+    <script src="validate.js" type="text/javascript"></script>
     
 </head>
 <body>
@@ -19,7 +20,7 @@
     ?>
 
      <!-- Add -->
-    <form action="addMember.php" method="post"><br>
+    <form name = "addMember" onsubmit="return validateAdd()" action="addMember.php" method="post" ><br>
         <fieldset>
             <legend>Add new member</legend>
             <label for="firstName">First name:</label>
@@ -33,7 +34,7 @@
     </form>
 
     <!-- Modify -->
-    <form action="modifyMember.php" method="post"><br><br>
+    <form name = "modifyMember" onsubmit="return validateModify()" action="modifyMember.php" method="post"><br><br>
         <fieldset>
             <legend>Modify member</legend>
             <label for="lastNameToModify">Old last name:</label>
@@ -50,7 +51,7 @@
     </form>
 
     <!-- Delete -->
-    <form action="deleteMember.php" method="post"><br><br>
+    <form name = "deleteMember" onsubmit="return validateDelete()" action="deleteMember.php" method="post"><br><br>
         <fieldset>
             <legend>Delete member</legend>
             <label for="lastNameToDelete">Last name:</label>

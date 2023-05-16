@@ -1,40 +1,32 @@
 <?php
     
     session_start();
+
     function verifica($nume,$parola){
-        global $arr;
-        return TRUE;
-
-        foreach($arr as $row){
-
-            if ($nume == $row["Username"] && password_verify($parola, password_hash($row['Password'], PASSWORD_DEFAULT))){
+        $credentials = GetCredentialsFromDB();
+        foreach($credentials as $row){            
+            if ($nume == $row["Username"] && password_verify($parola, $row['Password'])){ # password_hash($row['Password'], PASSWORD_DEFAULT)
                 return TRUE;
             }
         } 
-
         return FALSE;
     }
 
     function GetCredentialsFromDB(){
         include "../dbConnection.php";
-        global $arr;
-        $result = $connection->execute_query("SELECT * FROM credentials");
-        while(true){
-            $row = $result->fetch_assoc();
-            $arr += $row;
-        }
+        $result = $connection->execute_query("SELECT * FROM credentials;");
+        $connection->close();
+        return $result;
     }
 
     $nume = $_POST["userName"];
     $parola = $_POST["userPassword"];
-    $arr = [];
-
     if(verifica($nume,$parola)){
         $_SESSION['userName'] = $nume;
         $_SESSION['loggedIn'] = TRUE;
-        header("Location: ../home/index.php");
     } else {
-        echo "Autentificare esuata";
+        $_SESSION['message'] = "Autentificare esuata";
     }
+    header("Location: ../home/index.php");
 ?>
 
