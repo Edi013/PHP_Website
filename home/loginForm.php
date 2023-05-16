@@ -5,6 +5,7 @@
         echo $_SESSION['message'];
         echo "<br><br>";
     }
+echo 'sal';
 ?>
 
 
@@ -12,7 +13,7 @@
     <body>
         <script src="validate.js" type="text/javascript"></script>
 
-        <form name = "Login" onsubmit="return validateLogin()" action="../login/login.php" method="post">
+        <form name="Login" onsubmit="return validateLogin()" action="../login/login.php" method="post">
             <fieldset>
                 <legend>Credentials</legend>
                 
@@ -22,7 +23,7 @@
                 <label for="userPassword">Password:</label>
                 <input type="password" id="userPassword" name="userPassword"><br><br>
                 
-                <input type = submit value = "Log in">
+                <input type="submit" value = "Login">
             </fieldset>
         </form>
     </body>

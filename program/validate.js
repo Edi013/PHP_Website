@@ -78,7 +78,7 @@ function validateModify(){
         form.newBeginningHour.value = "";
         return false;
     }
-    if(form["beginningHour"].value < 0 || form["newBeginningHour"].value > 23){
+    if(form["newBeginningHour"].value < 0 || form["newBeginningHour"].value > 23){
         alert("Sectiunea 'New beginning hour' trebuie sa fie un numar cuprins intre 00 - 23");
         form.newBeginningHour.focus();
         form.newBeginningHour.value = "";
