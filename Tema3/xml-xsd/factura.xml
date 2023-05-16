@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<factura xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="factura.xsd">
+	<firma>
+		<nume>DIGI</nume>
+		<sediu>Str. Dr. Staicovici, nr. 75, Forum 2000 Building, Faza I, Et. 2, Sector 5, Bucuresti</sediu>
+	</firma>
+	<dataCurenta>2023-01-01</dataCurenta>
+	<perioadaFacturareInceput>2022-12-01</perioadaFacturareInceput>
+	<perioadaFacturareSfarsit>2022-12-30</perioadaFacturareSfarsit>
+	<client>
+		<firstName>Eduard</firstName>
+        <lastName>Ghenea</lastName>
+		<cod>12345</cod>
+	</client>
+	<soldPrecedent>0.00</soldPrecedent>
+	<facturaCurenta>72.98</facturaCurenta>
+	<tva>13.86</tva>
+	<totalDeAchitat>86.84</totalDeAchitat>
+	<telefonInformatii>0344400414</telefonInformatii>
+</factura>
