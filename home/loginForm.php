@@ -5,7 +5,6 @@
         echo $_SESSION['message'];
         echo "<br><br>";
     }
-echo 'sal';
 ?>
 
 
@@ -23,7 +22,7 @@ echo 'sal';
                 <label for="userPassword">Password:</label>
                 <input type="password" id="userPassword" name="userPassword"><br><br>
                 
-                <input type="submit" value = "Login">
+                <input type="submit" value="Login">
             </fieldset>
         </form>
     </body>
