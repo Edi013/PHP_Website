@@ -1,3 +1,7 @@
+<?php
+include "../login/checkLoginStatus.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
