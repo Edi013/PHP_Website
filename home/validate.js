@@ -1,12 +1,6 @@
 function validateLogin(){
     var form = document.forms["Login"];
 
-    let x = document.forms["Login"]["userName"].value;
-    if (x == "") {
-        alert("Name must be filled out");
-        return false;
-    }
-
     if(form["userName"].value.length < 2){
         alert("Sectiunea 'Username' trebuie sa aiba minim 2 caractere");
         form.userName.focus();
