@@ -41,14 +41,14 @@
     } 
 
     include "../dbConnection.php";
-    $beginningHour = mysqli_real_escape_string($connection, $beginningHour);
-    $beginningHour = htmlspecialchars($beginningHour);
-    $name = mysqli_real_escape_string($connection, $name);
-    $name = htmlspecialchars($name);
-    $duration = mysqli_real_escape_string($connection, $duration);
-    $duration = htmlspecialchars($duration);
-    $day = mysqli_real_escape_string($connection, $day);
-    $day = htmlspecialchars($day);
+    // $beginningHour = mysqli_real_escape_string($connection, $beginningHour);
+    // $beginningHour = htmlspecialchars($beginningHour);
+    // $name = mysqli_real_escape_string($connection, $name);
+    // $name = htmlspecialchars($name);
+    // $duration = mysqli_real_escape_string($connection, $duration);
+    // $duration = htmlspecialchars($duration);
+    // $day = mysqli_real_escape_string($connection, $day);
+    // $day = htmlspecialchars($day);
 
     #verificam daca deja exista
     $result = $connection->prepare("SELECT * FROM program WHERE  Day = ? and BeginningHour = ?");
